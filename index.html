@@ -1,0 +1,174 @@
+I've updated the website's design to be more polished and modern, incorporating a cleaner layout, an enhanced color palette, and better visual separation between sections.
+
+Regarding the course aims, I am still unable to read the *content* of the uploaded files. However, based on the course title and the *filenames* (which mention topics like "Current Assets," "Fixed Assets," and "Equity"), I have refined the course description to accurately reflect the foundational topics of financial accounting.
+
+Here is the complete HTML file. You can save this as `index.html` and use it for your GitHub site.
+
+-----
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introduction to Financial Accounting</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-color: #004a99; /* Ruppin's darker blue */
+            --accent-color: #009a9a; /* A professional teal */
+            --background-light: #f8f9fa; /* Very light gray */
+            --background-white: #ffffff;
+            --text-dark: #333333;
+            --text-light: #fdfdfd;
+            --border-color: #e0e0e0;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--background-light);
+            color: var(--text-dark);
+            line-height: 1.7;
+        }
+
+        /* --- Header / Hero Section --- */
+        .hero {
+            background: linear-gradient(to right, #004a99, #003366); /* Gradient blue */
+            color: var(--text-light);
+            padding: 60px 20px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .hero h1 {
+            font-size: 2.8em;
+            font-weight: 700;
+            margin: 0 0 10px 0;
+        }
+
+        .hero p {
+            font-size: 1.3em;
+            font-weight: 300;
+            margin: 5px 0;
+            opacity: 0.9;
+        }
+
+        /* --- Main Content Container --- */
+        .container {
+            max-width: 960px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        /* --- Section Card Styling --- */
+        .section {
+            background-color: var(--background-white);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 35px 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.03);
+        }
+
+        .section h2 {
+            font-size: 1.9em;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-top: 0;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid var(--accent-color);
+            display: inline-block;
+        }
+
+        .section p {
+            font-size: 1.05em;
+            margin-bottom: 20px;
+        }
+
+        /* --- Button Styling --- */
+        .button {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: var(--text-light);
+            padding: 14px 28px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 500;
+            font-size: 1.1em;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 154, 154, 0.2);
+        }
+
+        .button:hover {
+            background-color: #007a7a; /* Darker teal on hover */
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0, 154, 154, 0.3);
+        }
+
+        .button:active {
+            transform: translateY(-1px);
+        }
+
+        /* --- Footer --- */
+        .footer {
+            text-align: center;
+            padding: 30px 20px;
+            font-size: 0.9em;
+            color: #777;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="hero">
+        <h1>Ruppin Academic Center</h1>
+        <h1>Introduction to Financial Accounting</h1>
+        <p>Semester 2026A</p>
+        <p>Dr. Shay Tsaban</p>
+    </header>
+
+    <main class="container">
+
+        <section class="section">
+            <h2>Course Aims 🎯</h2>
+            <p>
+                This course serves as an introduction to the "language of business." We will build a solid foundation in financial accounting principles, starting from the basic accounting equation. You will learn how to analyze and record business transactions and understand the structure of the primary financial statements, including the <strong>Statement of Financial Position</strong> (Balance Sheet) and the <strong>Statement of Comprehensive Income</strong>.
+            </p>
+        </section>
+
+        <section class="section">
+            <h2>Course Materials 📚</h2>
+            <p>
+                Here you can find all the detailed written materials supplied in the course. This central file contains all lecture notes, in-class examples, and practice problems.
+            </p>
+            <a href="https://mypac-my.sharepoint.com/:x:/g/personal/shay_tsaban_pac_org_il/EVL8c1K8r9pPmnCa2llOIWoB3sfgkmgqKiiGCn_VugUz1g?e=hPoOzL" class="button" target="_blank" rel="noopener noreferrer">
+                Course Notes - 2026 A
+            </a>
+        </section>
+
+        <section class="section">
+            <h2>Lecture Recordings 🎥</h2>
+            <p>
+                Find all our lecture recordings here. This is a great resource to review complex topics at your own pace or to catch up on a session you missed. Happy watching!
+            </p>
+            </section>
+
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2025 Ruppin Academic Center | Dr. Shay Tsaban</p>
+    </footer>
+
+</body>
+</html>
+```
