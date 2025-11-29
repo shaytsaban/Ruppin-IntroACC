@@ -68,10 +68,10 @@
         }
 
         .exam-notice {
-            margin-top: 25px;
-            padding: 20px 30px;
+            margin-top: 12px;
+            padding: 10px 18px;
             background: linear-gradient(135deg, #fff9e6 0%, #fff3cd 100%);
-            border-radius: 15px;
+            border-radius: 10px;
             border-right: 4px solid #f39c12;
             max-width: 700px;
             margin-left: auto;
@@ -79,10 +79,10 @@
         }
 
         .exam-notice p {
-            font-size: 0.95rem;
+            font-size: 0.85rem;
             color: #5d4e37;
-            line-height: 1.8;
-            margin-bottom: 8px;
+            line-height: 1.4;
+            margin-bottom: 2px;
         }
 
         .exam-notice p:last-child {
@@ -90,7 +90,7 @@
         }
 
         .exam-notice .signature {
-            margin-top: 15px;
+            margin-top: 6px;
             font-weight: 600;
             color: #7f6c3b;
         }
@@ -204,6 +204,15 @@
             margin-top: 15px;
             font-weight: 600;
             color: var(--primary);
+        }
+
+        .total-major {
+            font-size: 1.1rem;
+            color: #667eea;
+        }
+
+        .equity-section {
+            margin-top: 20px;
         }
 
         /* Income Statement Styles */
@@ -510,7 +519,8 @@
         @media print {
             body {
                 background: white;
-                padding: 10px;
+                padding: 0;
+                font-size: 10px;
                 -webkit-print-color-adjust: exact;
                 print-color-adjust: exact;
             }
@@ -520,12 +530,55 @@
                 padding: 0;
             }
             
+            header {
+                margin-bottom: 5px;
+            }
+            
+            h1 {
+                font-size: 1.4rem;
+                margin-bottom: 2px;
+            }
+            
+            .subtitle {
+                font-size: 0.8rem;
+            }
+            
+            .author {
+                font-size: 0.7rem;
+                margin-top: 3px;
+            }
+            
+            .exam-notice {
+                padding: 5px 10px;
+                margin-top: 5px;
+                margin-bottom: 8px;
+            }
+            
+            .exam-notice p {
+                font-size: 0.65rem;
+                margin-bottom: 0;
+                line-height: 1.2;
+            }
+            
+            .exam-notice .signature {
+                margin-top: 2px;
+            }
+            
+            .grid {
+                display: grid !important;
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 8px;
+            }
+            
+            .grid > .full-width {
+                grid-column: 1 / -1 !important;
+            }
+            
             .card {
                 box-shadow: none;
-                border: 1px solid #ddd;
-                page-break-inside: avoid;
-                break-inside: avoid;
-                margin-bottom: 20px;
+                border: 1px solid #ccc;
+                border-radius: 6px;
+                margin-bottom: 8px;
             }
             
             .card:hover {
@@ -533,86 +586,174 @@
             }
             
             .card-header {
-                -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
+                padding: 6px 10px;
+            }
+            
+            .card-header h2 {
+                font-size: 0.85rem;
+            }
+            
+            .card-header .icon {
+                width: 28px;
+                height: 28px;
+                font-size: 0.9rem;
             }
             
             .card-body {
-                page-break-inside: avoid;
-                break-inside: avoid;
+                padding: 8px 10px;
             }
             
+            /* CRITICAL: Preserve balance sheet two-column layout */
             .balance-sheet {
-                page-break-inside: avoid;
-                break-inside: avoid;
+                display: grid !important;
+                grid-template-columns: 1fr 1fr !important;
+                gap: 8px;
             }
             
             .balance-column {
-                page-break-inside: avoid;
-                break-inside: avoid;
+                padding: 6px;
+                border-radius: 8px;
+            }
+            
+            .balance-column h3 {
+                font-size: 0.75rem;
+                margin-bottom: 5px;
+                padding-bottom: 4px;
             }
             
             .balance-section {
-                page-break-inside: avoid;
-                break-inside: avoid;
+                margin-bottom: 6px;
             }
             
-            .highlight-box, .note-box {
-                page-break-inside: avoid;
-                break-inside: avoid;
+            .equity-section {
+                margin-top: 6px !important;
             }
             
-            .exam-notice {
-                page-break-inside: avoid;
-                break-inside: avoid;
+            .balance-section h4 {
+                font-size: 0.7rem;
+                margin-bottom: 2px;
+            }
+            
+            .balance-section h4::before {
+                width: 5px;
+                height: 5px;
+            }
+            
+            .balance-section p {
+                font-size: 0.65rem;
+                line-height: 1.2;
+                padding-right: 12px;
+            }
+            
+            .total-line {
+                padding-top: 4px;
+                margin-top: 4px;
+                font-size: 0.7rem;
+            }
+            
+            .total-major {
+                font-size: 0.75rem !important;
+            }
+            
+            .formula-box {
+                padding: 8px 10px;
+                font-size: 0.85rem;
+                margin-bottom: 10px;
             }
             
             .cutoff-table {
-                page-break-inside: avoid;
-                break-inside: avoid;
+                border-spacing: 0 5px;
+            }
+            
+            .cutoff-table th,
+            .cutoff-table td {
+                padding: 5px 8px;
+                font-size: 0.7rem;
             }
             
             .depreciation-formula {
-                page-break-inside: avoid;
-                break-inside: avoid;
+                padding: 10px;
+            }
+            
+            .depreciation-formula h4 {
+                font-size: 0.8rem;
+                margin-bottom: 8px;
             }
             
             .formula-step {
-                page-break-inside: avoid;
-                break-inside: avoid;
+                padding: 6px 10px;
+                margin-bottom: 5px;
             }
             
+            .step-number {
+                width: 25px;
+                height: 25px;
+                font-size: 0.75rem;
+            }
+            
+            .step-title {
+                font-size: 0.75rem;
+            }
+            
+            .step-desc {
+                font-size: 0.7rem;
+            }
+            
+            .highlight-box, .note-box {
+                padding: 6px 8px;
+                margin-top: 6px;
+            }
+            
+            .highlight-box h4 {
+                font-size: 0.75rem;
+                margin-bottom: 4px;
+            }
+            
+            .highlight-box p, .note-box p {
+                font-size: 0.65rem;
+                line-height: 1.25;
+            }
+            
+            /* Preserve two-column layout for types */
             .two-columns {
-                page-break-inside: avoid;
-                break-inside: avoid;
+                display: grid !important;
+                grid-template-columns: 1fr 1fr !important;
+                gap: 10px;
             }
             
             .column-box {
-                page-break-inside: avoid;
-                break-inside: avoid;
+                padding: 8px;
             }
             
-            .grid {
-                display: block;
+            .column-box h4 {
+                font-size: 0.75rem;
+                margin-bottom: 6px;
+                padding-bottom: 4px;
             }
             
-            .grid > .card {
-                page-break-inside: avoid;
-                break-inside: avoid;
-                margin-bottom: 25px;
+            .type-list li {
+                padding: 3px 0;
+                font-size: 0.7rem;
             }
             
-            /* Force page breaks before large sections if needed */
-            .full-width {
-                page-break-before: auto;
+            .type-list li::before {
+                font-size: 0.5rem;
             }
             
-            header {
-                page-break-after: avoid;
+            .asset-tag, .liability-tag {
+                padding: 1px 6px;
+                font-size: 0.6rem;
             }
             
             footer {
-                page-break-before: avoid;
+                margin-top: 10px;
+                padding: 8px;
+                font-size: 0.7rem;
+            }
+            
+            /* Prevent cutting the cut-off accounts header */
+            .cutoff-card {
+                page-break-before: always;
             }
         }
     </style>
@@ -634,7 +775,7 @@
 
         <div class="grid">
             <!-- Balance Sheet Card -->
-            <div class="card full-width">
+            <div class="card full-width balance-card">
                 <div class="card-header gradient-1">
                     <h2><span class="icon">⚖️</span> מאזן</h2>
                 </div>
@@ -655,7 +796,7 @@
                                 <div class="total-line">סך הנכסים הלא שוטפים ___________</div>
                             </div>
                             
-                            <div class="total-line" style="font-size: 1.1rem; color: #667eea;">
+                            <div class="total-line total-major">
                                 סך הנכסים ___________________
                             </div>
                         </div>
@@ -677,13 +818,13 @@
                             
                             <div class="total-line">סך ההתחייבויות ___________________</div>
                             
-                            <div class="balance-section" style="margin-top: 20px;">
+                            <div class="balance-section equity-section">
                                 <h4>הון עצמי</h4>
                                 <p>הון מניות<br>עודפים לסוף השנה (*)</p>
                                 <div class="total-line">סך ההון העצמי ____________________</div>
                             </div>
                             
-                            <div class="total-line" style="font-size: 1.1rem; color: #667eea;">
+                            <div class="total-line total-major">
                                 סך ההתחייבויות וההון העצמי ___________
                             </div>
                         </div>
@@ -745,7 +886,7 @@
             </div>
 
             <!-- Cut-off Accounts Card -->
-            <div class="card full-width">
+            <div class="card full-width cutoff-card">
                 <div class="card-header gradient-3">
                     <h2><span class="icon">✂️</span> חשבונות חתך</h2>
                 </div>
