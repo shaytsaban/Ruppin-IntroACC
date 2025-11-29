@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>דף נוסחאות - חשבונאות פיננסית</title>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --success: #27ae60;
+            --warning: #f39c12;
+            --light: #ecf0f1;
+            --dark: #1a252f;
+            --card-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            --gradient-1: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --gradient-2: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+            --gradient-3: linear-gradient(135deg, #ee0979 0%, #ff6a00 100%);
+            --gradient-4: linear-gradient(135deg, #4776E6 0%, #8E54E9 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Heebo', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+            color: var(--dark);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: #7f8c8d;
+            font-weight: 300;
+        }
+
+        .author {
+            margin-top: 15px;
+            font-size: 0.95rem;
+            color: #95a5a6;
+        }
+
+        .exam-notice {
+            margin-top: 25px;
+            padding: 20px 30px;
+            background: linear-gradient(135deg, #fff9e6 0%, #fff3cd 100%);
+            border-radius: 15px;
+            border-right: 4px solid #f39c12;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .exam-notice p {
+            font-size: 0.95rem;
+            color: #5d4e37;
+            line-height: 1.8;
+            margin-bottom: 8px;
+        }
+
+        .exam-notice p:last-child {
+            margin-bottom: 0;
+        }
+
+        .exam-notice .signature {
+            margin-top: 15px;
+            font-weight: 600;
+            color: #7f6c3b;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 20px;
+            box-shadow: var(--card-shadow);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+        }
+
+        .card-header {
+            padding: 25px 30px;
+            color: white;
+            position: relative;
+        }
+
+        .card-header h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .card-header .icon {
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+        }
+
+        .card-body {
+            padding: 30px;
+        }
+
+        .gradient-1 { background: var(--gradient-1); }
+        .gradient-2 { background: var(--gradient-2); }
+        .gradient-3 { background: var(--gradient-3); }
+        .gradient-4 { background: var(--gradient-4); }
+
+        /* Balance Sheet Specific Styles */
+        .balance-sheet {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        .balance-column {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 20px;
+        }
+
+        .balance-column h3 {
+            font-size: 1.1rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--secondary);
+        }
+
+        .balance-section {
+            margin-bottom: 20px;
+        }
+
+        .balance-section h4 {
+            font-size: 0.95rem;
+            color: var(--secondary);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .balance-section h4::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: var(--secondary);
+            border-radius: 50%;
+        }
+
+        .balance-section p {
+            font-size: 0.9rem;
+            color: #666;
+            line-height: 1.8;
+            padding-right: 20px;
+        }
+
+        .total-line {
+            border-top: 2px dashed #ddd;
+            padding-top: 15px;
+            margin-top: 15px;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        /* Income Statement Styles */
+        .formula-box {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 20px 25px;
+            border-radius: 12px;
+            text-align: center;
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 25px;
+            box-shadow: 0 5px 20px rgba(240, 147, 251, 0.4);
+        }
+
+        .profit-flow {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .profit-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 15px 20px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .profit-item:hover {
+            background: #e8f4fc;
+            transform: translateX(-5px);
+        }
+
+        .profit-icon {
+            width: 45px;
+            height: 45px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            color: white;
+            flex-shrink: 0;
+        }
+
+        .profit-content {
+            flex: 1;
+        }
+
+        .profit-name {
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 3px;
+        }
+
+        .profit-desc {
+            font-size: 0.85rem;
+            color: #7f8c8d;
+        }
+
+        .arrow-down {
+            text-align: center;
+            color: #bdc3c7;
+            font-size: 1.5rem;
+        }
+
+        /* Cut-off Accounts Table */
+        .cutoff-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0 10px;
+        }
+
+        .cutoff-table th {
+            background: var(--primary);
+            color: white;
+            padding: 15px;
+            font-weight: 500;
+            text-align: right;
+        }
+
+        .cutoff-table th:first-child {
+            border-radius: 0 10px 10px 0;
+        }
+
+        .cutoff-table th:last-child {
+            border-radius: 10px 0 0 10px;
+        }
+
+        .cutoff-table td {
+            padding: 15px;
+            background: #f8f9fa;
+        }
+
+        .cutoff-table tr td:first-child {
+            border-radius: 0 10px 10px 0;
+            font-weight: 600;
+            color: var(--secondary);
+        }
+
+        .cutoff-table tr td:last-child {
+            border-radius: 10px 0 0 10px;
+        }
+
+        .asset-tag {
+            display: inline-block;
+            background: var(--success);
+            color: white;
+            padding: 3px 10px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            margin-right: 8px;
+        }
+
+        .liability-tag {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            padding: 3px 10px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            margin-right: 8px;
+        }
+
+        /* Depreciation Section */
+        .depreciation-formula {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+        }
+
+        .depreciation-formula h4 {
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+
+        .formula-step {
+            background: white;
+            padding: 15px 20px;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+        }
+
+        .step-number {
+            width: 35px;
+            height: 35px;
+            background: var(--gradient-4);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .step-content {
+            flex: 1;
+        }
+
+        .step-title {
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 3px;
+        }
+
+        .step-desc {
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        /* Highlight Boxes */
+        .highlight-box {
+            background: linear-gradient(135deg, #fff9c4 0%, #ffecb3 100%);
+            border-right: 4px solid var(--warning);
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        .highlight-box h4 {
+            color: var(--dark);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .highlight-box p {
+            font-size: 0.95rem;
+            color: #5d4e37;
+            line-height: 1.7;
+        }
+
+        /* Note Box */
+        .note-box {
+            background: linear-gradient(135deg, #e0f7fa 0%, #b2ebf2 100%);
+            border-right: 4px solid var(--secondary);
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        .note-box p {
+            font-size: 0.9rem;
+            color: #006064;
+            line-height: 1.7;
+        }
+
+        /* Full Width Card */
+        .full-width {
+            grid-column: 1 / -1;
+        }
+
+        /* Two Column Layout for Types */
+        .two-columns {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        .column-box {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 25px;
+        }
+
+        .column-box h4 {
+            font-size: 1rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid;
+        }
+
+        .column-box.purple h4 {
+            border-color: #9b59b6;
+        }
+
+        .column-box.blue h4 {
+            border-color: #3498db;
+        }
+
+        .type-list {
+            list-style: none;
+        }
+
+        .type-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .type-list li:last-child {
+            border-bottom: none;
+        }
+
+        .type-list li::before {
+            content: '◆';
+            color: var(--secondary);
+            font-size: 0.7rem;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 30px;
+            color: #95a5a6;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .balance-sheet {
+                grid-template-columns: 1fr;
+            }
+            
+            .two-columns {
+                grid-template-columns: 1fr;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+        }
+
+        /* Print Styles */
+        @media print {
+            body {
+                background: white;
+                padding: 20px;
+            }
+            
+            .card {
+                box-shadow: none;
+                border: 1px solid #ddd;
+                break-inside: avoid;
+            }
+            
+            .card:hover {
+                transform: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📊 דף נוסחאות</h1>
+            <p class="subtitle">יסודות החשבונאות</p>
+            <p class="author">© עמית קולינסקי רו"ח | ד"ר צבאן</p>
+            <div class="exam-notice">
+                <p>זהו דף הנוסחאות שיצורף לבחינה.</p>
+                <p>לא תוכלו לצרף לדף זה נוסחאות נוספות.</p>
+                <p>כמו כן, ייתכנו שינויים סמנטיים קלים בלבד ביוזמת הצוות לקראת סוף הסמסטר - אך לא תתקיימנה תוספות וכל מה שמעבר לדף עליכם לדעת בעל פה.</p>
+                <p>אנא היערכו בהתאם.</p>
+                <p class="signature">בהצלחה, רו״ח קולינסקי וד״ר צבאן</p>
+            </div>
+        </header>
+
+        <div class="grid">
+            <!-- Balance Sheet Card -->
+            <div class="card full-width">
+                <div class="card-header gradient-1">
+                    <h2><span class="icon">⚖️</span> מאזן</h2>
+                </div>
+                <div class="card-body">
+                    <div class="balance-sheet">
+                        <div class="balance-column">
+                            <h3>נכסים</h3>
+                            
+                            <div class="balance-section">
+                                <h4>נכסים שוטפים (רכוש שוטף)</h4>
+                                <p>נכסים המשמשים לטווח קצר (עד שנה)</p>
+                                <div class="total-line">סך הנכסים השוטפים ___________</div>
+                            </div>
+                            
+                            <div class="balance-section">
+                                <h4>נכסים לא שוטפים</h4>
+                                <p>נכסים המשמשים לטווח ארוך (מעל שנה)</p>
+                                <div class="total-line">סך הנכסים הלא שוטפים ___________</div>
+                            </div>
+                            
+                            <div class="total-line" style="font-size: 1.1rem; color: #667eea;">
+                                סך הנכסים ___________________
+                            </div>
+                        </div>
+                        
+                        <div class="balance-column">
+                            <h3>התחייבויות והון עצמי</h3>
+                            
+                            <div class="balance-section">
+                                <h4>התחייבויות שוטפות</h4>
+                                <p>התחייבויות שצפויות להיפרע בטווח הקצר (עד שנה)</p>
+                                <div class="total-line">סך ההתחייבויות השוטפות ____________</div>
+                            </div>
+                            
+                            <div class="balance-section">
+                                <h4>התחייבויות לא שוטפות</h4>
+                                <p>התחייבויות שצפויות להיפרע בטווח הארוך (מעל שנה)</p>
+                                <div class="total-line">סך ההתחייבויות הלא שוטפות __________</div>
+                            </div>
+                            
+                            <div class="total-line">סך ההתחייבויות ___________________</div>
+                            
+                            <div class="balance-section" style="margin-top: 20px;">
+                                <h4>הון עצמי</h4>
+                                <p>הון מניות<br>עודפים לסוף השנה (*)</p>
+                                <div class="total-line">סך ההון העצמי ____________________</div>
+                            </div>
+                            
+                            <div class="total-line" style="font-size: 1.1rem; color: #667eea;">
+                                סך ההתחייבויות וההון העצמי ___________
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="note-box">
+                        <p><strong>(*)</strong> במקום לציין את העודפים לסוף השנה, אפשר (לא חובה) לציין בשתי שורות את:
+                        <br>• עודפים לתחילת השנה
+                        <br>• הרווח השנה
+                        <br><em>(של עודפים לסוף שנה, ושל שורת עודפים לתחילת שנה ושורת הרווח השנה - שתי צורות ההגצה תתקבלנה בנפרד)</em></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Income Statement Card -->
+            <div class="card">
+                <div class="card-header gradient-2">
+                    <h2><span class="icon">📈</span> דוח רווח והפסד</h2>
+                </div>
+                <div class="card-body">
+                    <div class="formula-box">
+                        רווח נקי (לתקופה) = הכנסות - הוצאות (הכנסות בניכוי הוצאות)
+                    </div>
+                    
+                </div>
+            </div>
+
+            <!-- Types of Income and Expenses -->
+            <div class="card">
+                <div class="card-header gradient-4">
+                    <h2><span class="icon">📋</span> סוגי הכנסות והוצאות</h2>
+                </div>
+                <div class="card-body">
+                    <div class="two-columns">
+                        <div class="column-box purple">
+                            <h4>סוגי רווחים</h4>
+                            <ul class="type-list">
+                                <li>רווח גולמי</li>
+                                <li>רווח תפעולי (לפני הכנסות/הוצאות מימון)</li>
+                                <li>רווח תפעולי אחרי הכנסות/הוצאות מימון, נטו</li>
+                                <li>רווח נקי לפני מס</li>
+                                <li>רווח נקי אחרי מס</li>
+                            </ul>
+                        </div>
+                        <div class="column-box blue">
+                            <h4>סוגי הכנסות והוצאות</h4>
+                            <ul class="type-list">
+                                <li>מכירות</li>
+                                <li>עלות המכר</li>
+                                <li>הוצאות מכירה</li>
+                                <li>הוצאות הנהלה וכלליות</li>
+                                <li>הכנסות/הוצאות מימון, נטו</li>
+                                <li>הכנסות/הוצאות אחרות, נטו</li>
+                                <li>מסים על הכנסה</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cut-off Accounts Card -->
+            <div class="card full-width">
+                <div class="card-header gradient-3">
+                    <h2><span class="icon">✂️</span> חשבונות חתך</h2>
+                </div>
+                <div class="card-body">
+                    <table class="cutoff-table">
+                        <thead>
+                            <tr>
+                                <th>סוג החשבון</th>
+                                <th>סיווג</th>
+                                <th>הסבר</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>הוצאות מראש</td>
+                                <td><span class="asset-tag">נכס</span></td>
+                                <td>סכומים ששולמו אך טרם נצרכה תמורתם</td>
+                            </tr>
+                            <tr>
+                                <td>הוצאות לשלם</td>
+                                <td><span class="liability-tag">התחייבות</span></td>
+                                <td>סכומים שנצרכו אך טרם שולמה תמורתם</td>
+                            </tr>
+                            <tr>
+                                <td>הכנסות לקבל</td>
+                                <td><span class="asset-tag">נכס</span></td>
+                                <td>סכומים שסופקו אך טרם נתקבלה תמורתם</td>
+                            </tr>
+                            <tr>
+                                <td>הכנסות מראש</td>
+                                <td><span class="liability-tag">התחייבות</span></td>
+                                <td>סכומים שנתקבלו אך טרם סופקה תמורתם</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Depreciation Card -->
+            <div class="card">
+                <div class="card-header gradient-1">
+                    <h2><span class="icon">🏭</span> רכוש קבוע - שיטת הקו הישר</h2>
+                </div>
+                <div class="card-body">
+                    <div class="depreciation-formula">
+                        <h4>חישוב פחת - שיטת הקו הישר</h4>
+                        
+                        <div class="formula-step">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <div class="step-title">בסיס חישוב הפחת</div>
+                                <div class="step-desc">עלות מקורית + עלויות נוספות - ערך גרט (ערך שייר)</div>
+                            </div>
+                        </div>
+                        
+                        <div class="formula-step">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <div class="step-title">הוצאות פחת שנתיות</div>
+                                <div class="step-desc">בסיס חישוב הפחת ÷ אורך החיים בשנים</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Loans Card -->
+            <div class="card">
+                <div class="card-header gradient-2">
+                    <h2><span class="icon">🏦</span> הלוואות - חלויות שוטפות</h2>
+                </div>
+                <div class="card-body">
+                    <div class="highlight-box">
+                        <h4>⚡ נקודת דגש</h4>
+                        <p>
+                            <strong>חלויות שוטפות בגין הלוואות לזמן ארוך:</strong>
+                            <br><br>
+                            חלק הקרן מתוך הלוואה לז"א שישולם בשנה הקרובה = יירשם <strong>בהתחייבויות השוטפות</strong>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Equity Card -->
+            <div class="card">
+                <div class="card-header gradient-4">
+                    <h2><span class="icon">💎</span> הון עצמי - הנפקה בפרמיה</h2>
+                </div>
+                <div class="card-body">
+                    <div class="highlight-box">
+                        <h4>⚡ נקודת דגש</h4>
+                        <p>
+                            <strong>הנפקה בפרמיה:</strong>
+                            <br><br>
+                            כאשר התמורה שמתקבלת עולה על הערך הנקוב של המניות
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>© עמית קולינסקי רו"ח | ד"ר צבאן</p>
+        </footer>
+    </div>
+</body>
+</html>
