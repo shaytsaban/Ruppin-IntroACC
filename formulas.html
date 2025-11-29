@@ -510,17 +510,109 @@
         @media print {
             body {
                 background: white;
-                padding: 20px;
+                padding: 10px;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            
+            .container {
+                max-width: 100%;
+                padding: 0;
             }
             
             .card {
                 box-shadow: none;
                 border: 1px solid #ddd;
+                page-break-inside: avoid;
                 break-inside: avoid;
+                margin-bottom: 20px;
             }
             
             .card:hover {
                 transform: none;
+            }
+            
+            .card-header {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            
+            .card-body {
+                page-break-inside: avoid;
+                break-inside: avoid;
+            }
+            
+            .balance-sheet {
+                page-break-inside: avoid;
+                break-inside: avoid;
+            }
+            
+            .balance-column {
+                page-break-inside: avoid;
+                break-inside: avoid;
+            }
+            
+            .balance-section {
+                page-break-inside: avoid;
+                break-inside: avoid;
+            }
+            
+            .highlight-box, .note-box {
+                page-break-inside: avoid;
+                break-inside: avoid;
+            }
+            
+            .exam-notice {
+                page-break-inside: avoid;
+                break-inside: avoid;
+            }
+            
+            .cutoff-table {
+                page-break-inside: avoid;
+                break-inside: avoid;
+            }
+            
+            .depreciation-formula {
+                page-break-inside: avoid;
+                break-inside: avoid;
+            }
+            
+            .formula-step {
+                page-break-inside: avoid;
+                break-inside: avoid;
+            }
+            
+            .two-columns {
+                page-break-inside: avoid;
+                break-inside: avoid;
+            }
+            
+            .column-box {
+                page-break-inside: avoid;
+                break-inside: avoid;
+            }
+            
+            .grid {
+                display: block;
+            }
+            
+            .grid > .card {
+                page-break-inside: avoid;
+                break-inside: avoid;
+                margin-bottom: 25px;
+            }
+            
+            /* Force page breaks before large sections if needed */
+            .full-width {
+                page-break-before: auto;
+            }
+            
+            header {
+                page-break-after: avoid;
+            }
+            
+            footer {
+                page-break-before: avoid;
             }
         }
     </style>
